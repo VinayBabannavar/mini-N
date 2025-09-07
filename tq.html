@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost & Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    /* Reset & Fonts */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+      background: linear-gradient(to right, #2b5876, #4e4376);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(0,0,0,0.4);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { font-size: 24px; letter-spacing: 1px; }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h2 { font-size: 36px; margin-bottom: 15px; }
+    .hero p { font-size: 18px; margin-bottom: 30px; }
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+    .search-box button {
+      background: #ffcc00;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Action Cards */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 180px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card span {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Live Updates */
+    .updates {
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    .updates h3 { margin-bottom: 15px; }
+    .updates ul {
+      list-style: none;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    .updates li {
+      padding: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <h1>Campus Lost & Found</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Report Lost</a>
+      <a href="#">Report Found</a>
+      <a href="#">View Items</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Together, We Return What’s Lost</h2>
+    <p>Search or report lost items on campus in seconds.</p>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for lost item...">
+      <button onclick="searchItem()">Search</button>
+    </div>
+  </section>
+
+  <!-- Action Buttons -->
+  <section class="actions">
+    <div class="card" onclick="alert('Report Lost Item clicked')">
+      <span class="material-symbols-outlined">search</span>
+      Report Lost
+    </div>
+    <div class="card" onclick="alert('Report Found Item clicked')">
+      <span class="material-symbols-outlined">inventory</span>
+      Report Found
+    </div>
+    <div class="card" onclick="alert('Browse Items clicked')">
+      <span class="material-symbols-outlined">list</span>
+      Browse Items
+    </div>
+  </section>
+
+  <!-- Live Updates -->
+  <section class="updates">
+    <h3>Latest Reports</h3>
+    <ul id="updatesList">
+      <li>📱 Lost: iPhone near Library — 2 hrs ago</li>
+      <li>🎒 Found: Backpack in Cafeteria — 3 hrs ago</li>
+      <li>💳 Lost: Student ID in Parking Lot — 5 hrs ago</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Campus Lost & Found | Contact: support@campuslf.com
+  </footer>
+
+  <script>
+    function searchItem() {
+      const query = document.getElementById("searchInput").value;
+      if (query.trim() === "") {
+        alert("Please enter something to search.");
+      } else {
+        alert("Searching for: " + query);
+      }
+    }
+  </script>
+</body>
+</html>
